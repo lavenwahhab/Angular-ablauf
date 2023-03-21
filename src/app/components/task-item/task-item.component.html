@@ -1,0 +1,10 @@
+<div [ngClass]="{reminder: el.reminder}" class="task">
+    <h3>
+        {{el.text}} 
+        <fa-icon 
+            (click)="onDelete(el)"
+             [ngStyle]="{color: 'red'}" 
+             [icon]="faTimes"></fa-icon>
+    </h3>
+    <p>{{el.day}}</p>
+</div>
