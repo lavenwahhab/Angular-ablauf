@@ -19,12 +19,19 @@ ngOnInit(): void {
 deleteTask(el: Task) {
   this.taskService
   .deleteTask(el)
-  .subscribe(() => (this.tasks = this.tasks.filter((t) => t.id !== el.id)));
+  .subscribe(() => (this.tasks = this.tasks.filter((t) => t.id !== el.id))
+  );
 }
 
-addTask(el: Task){
-  this.taskService.addTask(el).subscribe((el) => (this.tasks.push(el)));
-  
+addTask(el: Task) {
+  this.taskService.addTask(el).subscribe((el) => (this.tasks.push(el))
+  );
 
+}
+
+toggleReminder(el:Task) {
+  el.reminder = !el.reminder;
+  this.taskService.updateTaskReminder(el).subscribe();
+  
 }
 }
